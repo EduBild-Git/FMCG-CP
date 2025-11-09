@@ -1,0 +1,24 @@
+[
+ {
+  "docstatus": 0,
+  "doctype": "Client Script",
+  "dt": "Customer Visit Management",
+  "enabled": 1,
+  "modified": "2025-11-09 12:47:12.239302",
+  "module": "FMCG-CP",
+  "name": "Customer Visit Management-Form",
+  "script": "frappe.ui.form.on('Customer Visit Management', {\n\trefresh(frm) {\n\t\tif (frm.is_new()) {\n          frm.set_value(\"channel_partner\", \"\");\n        }\n\t},\n\tcustomer_level(frm){\n        frm.set_value(\"customer\", \"\")\n        frm.set_value(\"unv_customer\", \"\")\n    },\n    customer(frm) {\n        if (!frm.doc.customer) {\n          frm.set_value(\"channel_partner\", \"\");\n        }\n    },\n    unv_customer(frm) {\n        if (!frm.doc.unv_customer) {\n          frm.set_value(\"channel_partner\", \"\");\n        }\n    },\n})\n\ncur_frm.set_query(\"customer\", function (frm) {\n  var filter_dict = {\n    customer_level: cur_frm.doc.customer_level,\n  }\n  if (cur_frm.doc.channel_partner){\n    filter_dict.custom_channel_partner = cur_frm.doc.channel_partner\n  }\n  return {\n    filters: filter_dict,\n  };\n});\n\ncur_frm.set_query(\"unv_customer\", function (frm) {\n  var filter_dict = {\n    customer_level: cur_frm.doc.customer_level,\n  }\n  if (cur_frm.doc.channel_partner){\n    filter_dict.channel_partner = cur_frm.doc.channel_partner\n  }\n  return {\n    filters: filter_dict,\n  };\n});",
+  "view": "Form"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Client Script",
+  "dt": "Trial Plan",
+  "enabled": 1,
+  "modified": "2025-11-09 12:48:01.812422",
+  "module": "FMCG-CP",
+  "name": "Trial Plan-Form",
+  "script": "frappe.ui.form.on('Trial Plan', {\n\trefresh(frm) {\n\t\t// your code here\n\t},\n\tcustomer_level(frm){\n        frm.set_value(\"customer\", \"\")\n        frm.set_value(\"unv_customer\", \"\")\n    },\n    customer(frm) {\n        if (!frm.doc.customer) {\n          frm.set_value(\"channel_partner\", \"\");\n        }\n    },\n    unv_customer(frm) {\n        if (!frm.doc.unv_customer) {\n          frm.set_value(\"channel_partner\", \"\");\n        }\n    },\n})\n\ncur_frm.set_query(\"customer\", function (frm) {\n  var filter_dict = {\n    customer_level: cur_frm.doc.customer_level,\n  }\n  if (cur_frm.doc.channel_partner){\n    filter_dict.custom_channel_partner = cur_frm.doc.channel_partner\n  }\n  return {\n    filters: filter_dict,\n  };\n});\n\ncur_frm.set_query(\"unv_customer\", function (frm) {\n  var filter_dict = {\n    customer_level: cur_frm.doc.customer_level,\n  }\n  if (cur_frm.doc.channel_partner){\n    filter_dict.channel_partner = cur_frm.doc.channel_partner\n  }\n  return {\n    filters: filter_dict,\n  };\n});",
+  "view": "Form"
+ }
+]
