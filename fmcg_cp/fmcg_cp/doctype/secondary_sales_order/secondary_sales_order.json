@@ -8,6 +8,8 @@
  "field_order": [
   "section_break_da1d",
   "naming_series",
+  "custom_channel_partner",
+  "cp_name",
   "customer",
   "customer_name",
   "customer_level",
@@ -222,13 +224,25 @@
    "fieldname": "shipping_address",
    "fieldtype": "Small Text",
    "label": "Shipping Address"
+  },
+  {
+   "fetch_from": "custom_channel_partner.customer_name",
+   "fieldname": "cp_name",
+   "fieldtype": "Data",
+   "label": "Channel Partner Name"
+  },
+  {
+   "fieldname": "custom_channel_partner",
+   "fieldtype": "Link",
+   "label": "Channel Partner",
+   "options": "Customer"
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2025-12-08 15:05:45.979739",
+ "modified": "2025-12-19 12:05:22.036551",
  "modified_by": "Administrator",
  "module": "FMCG-CP",
  "name": "Secondary Sales Order",
